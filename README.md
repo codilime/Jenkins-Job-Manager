@@ -1,3 +1,4 @@
+
 # Jenkins Job Manager
 
 ## This presentation will show how to create basic Jenkins setup with use of *freestyle* and *pipeline* jobs. Here you will also find a basic introduction to Docker. It will also demonstrate how to use exising Python tools and modules to make Jenkins management simpler. You will learn how to create, delete and reconfigure jobs. It will also highlight another Jenkins related features. I will demonstrate low level features of Python which can be useful in many different applications. This demo assumes you have docker installed and working: [docker installation](https://docs.docker.com/get-docker/).<br>
