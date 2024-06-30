@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="efficient-jenkins-management-using-python-and-docker">Efficient Jenkins Management Using Python and Docker</h1>
+<h2 id="overview">Overview</h2>
+<p>This presentation will cover creating a basic Jenkins setup using freestyle and pipeline jobs. It includes a basic introduction to Docker and demonstrates how to simplify Jenkins management with existing Python tools and modules. You will learn how to create, delete, and reconfigure jobs, as well as explore other Jenkins-related features. Additionally, I will showcase low-level Python features that are useful in various applications. Please ensure Docker is installed and working before starting this demo. This presentation assumes the reader has at least a basic understanding of Jenkins and Docker. Please ensure Docker is installed and working before starting this demo.<br>
+Refer to this document to get more details on Docker installation: <a href="https://docs.docker.com/get-docker/">docker installation</a>.<br></p>
+<h2 id="topics-covered">Topics Covered:</h2>
+<h3 id="jenkins-setup">Jenkins Setup:</h3>
+<ul>
+<li><a href="#Jenkins-documentation">Jenkins Documentation</a></li>
+<li>Running Jenkins in Docker
+<ul>
+<li><a href="#agent-docker-image">Agent Docker Image</a></li>
+<li><a href="#jenkins-controller-docker-compose">Jenkins Controller Docker-Compose</a></li>
+<li><a href="#adding-jenkins-agent">Adding a Jenkins Agent</a></li>
+</ul>
+</li>
+<li><a href="#adding-a-job">First Jenkins Job</a></li>
+</ul>
+<h3 id="python-and-jenkins">Python and Jenkins:</h3>
+<ul>
+<li><a href="#jenkins-apicli">Jenkins API/CLI</a></li>
+<li><a href="#python-jenkins-module"><em>python-jenkins</em> Module</a></li>
+<li><a href="#xml-parsingunparsing-with-xmltodict-module">XML Parsing and Unparsing with <em>xmltodict</em> Module</a></li>
+<li><a href="#how-to-make-xml-parsing-simpler-with-python-low-level-feateures">Low-Level Python Enhancements</a></li>
+<li><a href="#putting-it-all-together-with-cli-based-script-argparse-with-subparsers">Bringing It All Together</a></li>
+</ul>
+<h3 id="summary"><a href="#summary-and-conclusion">Summary</a></h3>
+<h2 id="jenkins-setup">Jenkins setup</h2>
+<p>Refer to below documentation to get more details on Jenkins but this article should contain everything to run this demo by following the steps and by using resources added in this article.</p>
+<ul>
+<li><a href="https://www.jenkins.io/doc/">Jenkins Documentation</a></li>
+<li><a href="https://www.jenkins.io/doc/book/managing/nodes/">Detailed Information on Jenkins Controllers and Agents</a></li>
+<li><a href="https://www.jenkins.io/doc/book/installing/">Jenkins Installation Instructions</a></li>
+</ul>
+<p>This tutorial will be based on Jenkins on Docker and it will slightly differ from the examples mentioned in referred links. The point of this tutorial is to show how to create a basic setup and manage it with Python.</p>
+<h2 id="dockerfile-and-docker-compose-overview">Dockerfile and Docker-Compose Overview</h2>
+<p>Ensure Docker is installed and running (<a href="https://docs.docker.com/get-docker/">Docker installation</a>). This project was prepared on Ubuntu 22.04, with Docker running as a service.<br></p>
+<p>Jenkins can be deployed in few different ways as described in <a href="##Jenkins-setup">Jenkins setup</a> section but here I am going to use Docker because of the following reasons:</p>
+<ul>
+<li>Docker can make your life much easier if you have to create a system which depends and few services</li>
+<li>It also lets you keep your host system clean and run other services in isolation</li>
+<li>Docker approach will help you to maintain and manage &quot;system&quot; you are going to deploy</li>
+<li>It is fairly easy to revert changes, perform a step back to modify anything &quot;from the past&quot;
+<br>
+This example also shows how easily you can communicate a system where there is a controller and agent(s), something similar to server-client relation. Docker compose encapsulates this system in single network. Modules like <em>docker swarm</em> can monitor your setup and keep it alive but <em>docker swarm</em> is not part of this presentation.<br></li>
+</ul>
+<h2 id="agent-docker-image">Agent docker image</h2>
+<p>Jenkins controller requires a workers (agents) to run the jobs.
+Fortunately, there is a ready-to-use Jenkins Agent image: <a href="https://hub.docker.com/layers/jenkins/inbound-agent/latest/images/sha256-8742a4fce1bb6664f5e4f6b133a2673eeeb0cf35e6a00fc8ffec8531bf9c18d3?context=explore">jenkins/inbound-agent</a> which can be used to connect it to our Controller. By opening the link, you can get more details on the steps required to run the agent. To view the image layers select architecture first like <em>linux/amd64</em>. We will return to this later when we try to connect the agent to the Jenkins controller. For now, I recommend reviewing the <em>IMAGE LAYERS</em> steps and corresponding commands:</p>
+<p align="center">
+<img src="pictures/docker-layers.png" border=2, width=50%>
+</p>
+<p align="center">
+<img src="pictures/jenkins-agent-docker-layers2.png" border=2, width=50%>
+</p>
+<p>Above layers view shows the steps required to build the image and it also tells how big each layer is. That allows to calculate total size of the image.</p>
+<p>For this tutorial most important will be the last step.<br></p>
+<pre class="hljs"><code><div>32 ENTRYPOINT [&quot;/usr/local/bin/jenkins-agent&quot;]         0 B
+</div></code></pre>
+<p>In a Dockerfile, the ENTRYPOINT instruction is used to define the command that will run as the container's main process (PID 1). This command is executed when the container starts. Unlike the CMD instruction, which can be overridden by command-line arguments provided at container runtime, the <em>ENTRYPOINT</em> instruction is designed to be the fixed executable of the container. If the <em>ENTRYPOINT</em> application requires arguments those arguments must be provided from <em>docker run</em> command or must be defined in docker compose file as <em>command</em> entry just like in <a href="#docker-compose.yaml">docker-compose</a>.</p>
+<p>Let's assume our Jenkins Agent will run a bunch of tests on a Python project and for that we need:</p>
+<ul>
+<li>python3</li>
+<li>pytest</li>
+<li>mypy</li>
+<li>pylint</li>
+</ul>
+<p>We will extend <em>jenkins/inbound-agent</em> Docker file so it fulfills our requirements: <a href="https://github.com/codilime/Jenkins-Job-Manager/blob/main/docker/dockerfile-python-agent">https://github.com/codilime/Jenkins-Job-Manager/blob/main/docker/dockerfile-python-agent</a></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">FROM</span> jenkins/inbound-agent:latest
+
+<span class="hljs-keyword">USER</span> root
+
+<span class="hljs-comment"># Install Python 3 and required tools</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> apt-get update</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y python3.11 python3.11-dev python3.11-distutils python3-pip</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> apt install -y python3-pytest python3-flake8 pylint python3-mypy</span>
+
+<span class="hljs-keyword">CMD</span><span class="bash"> /usr/bin/bash</span>
+
+<span class="hljs-keyword">USER</span> jenkins
+</div></code></pre>
+<p>All the <code>RUN</code> instructions could be combined with <code>&amp;&amp;</code>, but in this case, I prefer to keep each <code>RUN</code> instruction separate. This approach makes it easier to remove a step or add something new, resulting in faster builds of the image. However, this also causes the image to grow in size, as each <code>RUN</code> instruction in a Dockerfile adds a new layer to the image. Docker images are composed of multiple layers, each representing a set of changes from the previous layer. More layers can lead to a larger overall image size, as each <code>RUN</code> command adds some overhead. In this case, I prioritize build speed and time. Note that this only matters if you are building the image for the first time or modifying it. Additionally, all instructions in our Dockerfile extend the <em>IMAGE LAYERS</em> shown in the picture of the <em>jenkins/inbound-agent</em> above. It is possible to see all layers and layer sizes with:</p>
+<pre class="hljs"><code><div>$ docker <span class="hljs-built_in">history</span> -H &lt;image-name&gt;
+</div></code></pre>
+<p>To build a custom Docker file you can run below command:</p>
+<pre class="hljs"><code><div>$ docker build -t python-agent -f ./dockerfile-python-agent .
+</div></code></pre>
+<p>This logic will be later integrated in a <code>docker-compose</code> file which should simplify maintenance of the system.</p>
+<h2 id="jenkins-controller-docker-compose">Jenkins controller docker-compose</h2>
+<p>If there is more than one docker container to be deployed and all container somehow depends on each other it is worth to configure all details in single <em>docker-compose</em> file. This is the example how to deploy a single container which runs Jenkins controller:</p>
+<pre class="hljs"><code><div><span class="hljs-attr">version:</span> <span class="hljs-string">'3.8'</span>
+<span class="hljs-attr">services:</span>
+  <span class="hljs-attr">jenkins-master:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">jenkins/jenkins:lts</span>
+    <span class="hljs-attr">container_name:</span> <span class="hljs-string">jenkins-master</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"8080:8080"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"50000:50000"</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">jenkins_home:/var/jenkins_home</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">JENKINS_OPTS=--prefix=/jenkins</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">unless-stopped</span>
+
+<span class="hljs-attr">volumes:</span>
+  <span class="hljs-attr">jenkins_home:</span>
+</div></code></pre>
+<p>Here is short explanation of above <em>docker-compose</em> file:</p>
+<ul>
+<li>Jenkins Master: The service is defined under the name jenkins-master.</li>
+<li>Image: The container uses the jenkins/jenkins:lts image, which is the long-term support version of Jenkins, ensuring stability and security.</li>
+<li>Container Name: The container is named jenkins-master.</li>
+<li>Ports: Two ports are exposed:
+<ul>
+<li>Port 8080 is mapped from the host to the container, which is the standard port for accessing the Jenkins web interface.</li>
+<li>Port 50000 is also exposed, which is used for Jenkins agents to connect to the master.</li>
+</ul>
+</li>
+<li>Volumes: A volume named jenkins_home is mounted to /var/jenkins_home inside the container. This volume stores Jenkins data, including configuration, jobs, and plugin information, allowing data persistence across container restarts.</li>
+<li>Environment Variables: An environment variable JENKINS_OPTS is set with the value --prefix=/jenkins, which configures Jenkins to be served under a URL prefix (i.e., http://<host>:8080/jenkins).</li>
+<li>Restart Policy: The service is configured to restart automatically unless it is explicitly stopped. This ensures that the Jenkins server remains running unless manually intervened.</li>
+<li>Volumes Configuration:
+<ul>
+<li>jenkins_home: This named volume is declared at the top level, which Docker Compose uses to manage Docker volumes independently of the lifecycle of containers, enhancing data durability and ease of data backup and migration.
+<br></li>
+</ul>
+</li>
+</ul>
+<h2 id="initial-configuration-of-jenkins-controller">Initial configuration of Jenkins controller</h2>
+<p>To run <em>docker-compose</em> navigate to a location where docker compose file is and execute:</p>
+<pre class="hljs"><code><div>$ <span class="hljs-built_in">cd</span> docker
+$ docker compose up -d
+</div></code></pre>
+<p>This runs Jenkins controller container and you should be able to see such output with password required to unlock jenkins:</p>
+<pre class="hljs"><code><div>$ docker logs jenkins-controller
+
+2024-04-10 20:33:01.117+0000 [id=80]	INFO	jenkins.install.SetupWizard<span class="hljs-comment">#init: </span>
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    &lt;--- PASSWORD
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2024-04-10 20:33:23.841+0000 [id=80]	INFO	jenkins.InitReactorRunner<span class="hljs-variable">$1</span><span class="hljs-comment">#onAttained: Completed initialization</span>
+
+</div></code></pre>
+<p>According to <em>docker-compose</em> configuration web UI interface should be accessible under http://localhost:8080/jenkins:</p>
+<p align="center">
+<img src="pictures/jenkins-initial-config.png" border=2, width=50%>
+</p>
+<ul>
+<li>
+<p>Provide password displayed after running <code>docker compose up</code> command.</p>
+</li>
+<li>
+<p>There will be few more forms to fill:</p>
+<ul>
+<li>to create admin account</li>
+<li>dialog to install additional plugins, you can select <em>Install suggested plugins</em> but in most cases it fails to install all plugins. For this demo <em>Pipeline</em> plugin must be installed but can be installed later</li>
+</ul>
+</li>
+<li>
+<p>After completing all steps above there should be an initial <em>Dashoboard</em> of Jenkins:</p>
+</li>
+</ul>
+<p align="center" id=jenkins-initial-view>
+<img src="pictures/jenkins-initial-view.png" border=2, width=50%>
+</p>
+<h2 id="adding-jenkins-agent">Adding Jenkins Agent</h2>
+<p>Jenkins Agents are responsible for executing build jobs and offloading work from the controller. You can define multiple Agents that can perform different tasks, but for this example, only one will be sufficient. The requirements and configuration of the Jenkins Agent Dockerfile for this project were described above: <a href="#agent-docker-image">Agent configuration</a>.<br></p>
+<p>Adding an agent can be done with an API or the python-jenkins module, but it makes more sense to do it with the web UI as we need to obtain the so-called <em>secret</em> for the agent.<br></p>
+<ul>
+<li>To add new Agent (node) got to http://localhost:8080/jenkins/manage/computer/ or from <em>Dashboard</em> select <em>Manage Jenkins</em> and then <em>Nodes</em></li>
+<li>Click <em>&quot;+ New Node&quot;</em></li>
+</ul>
+<p align="center">
+<img src="pictures/add-new-node.png" border=2, width=50%>
+</p>
+<ul>
+<li>Provide a name for new Node</li>
+</ul>
+<p align="center">
+<img src="pictures/python-agent1.png" border=2, width=50%>
+</p>
+<ul>
+<li>Fill all necessary data, minimum number of executors for this project should be 2</li>
+</ul>
+<p align="center">
+<img src="pictures/agent-parameters.png" border=2, width=50%>
+</p>
+<ul>
+<li>New agent should be present on Jenkins <em>Dashboard</em>, now we need to get <em>secret</em> token, if you provided Node name as <em>python-agent1</em> open http://localhost:8080/jenkins/computer/python-agent1/ or open your new agent from <em>Dashboard</em> view. Copy the secret key visible:</li>
+</ul>
+<p align="center">
+<img src="pictures/secret-key.png" border=2, width=50%>
+</p>
+<ul>
+<li>Final step is to update <a href="./docker/docker-compose.yaml">docker-compose.yaml</a> file, replace <em>XXXXX...</em> with <em>secret</em> token
+<a id="docker-compose.yaml"></a></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-attr">version:</span> <span class="hljs-string">'3.8'</span>
+<span class="hljs-attr">services:</span>
+  <span class="hljs-attr">jenkins-master:</span>
+    <span class="hljs-comment"># repo digest sha256:1fd79ceb68ce883fb86db70bdbf7f9eaa8b25e580aafe7a240235240396e3916 corresponds to tag 'lts' on 13.04.2024</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">jenkins/jenkins@sha256:1fd79ceb68ce883fb86db70bdbf7f9eaa8b25e580aafe7a240235240396e3916</span>
+    <span class="hljs-attr">container_name:</span> <span class="hljs-string">jenkins-master</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"8080:8080"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"50000:50000"</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">jenkins_home:/var/jenkins_home</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">JENKINS_OPTS=--prefix=/jenkins</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">unless-stopped</span>
+
+  <span class="hljs-attr">jenkins-agent:</span>
+    <span class="hljs-attr">container_name:</span> <span class="hljs-string">jenkins-agent1</span>
+    <span class="hljs-attr">depends_on:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">jenkins-master</span>
+    <span class="hljs-comment"># build docker image from prepared dockerfile-python-agent</span>
+    <span class="hljs-attr">build:</span>
+      <span class="hljs-attr">context:</span> <span class="hljs-string">.</span>
+      <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">dockerfile-python-agent</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">/var/run/docker.sock:/var/run/docker.sock</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">jenkins_agent_home:/home/jenkins</span>
+    <span class="hljs-attr">command:</span> <span class="hljs-string">-url</span> <span class="hljs-string">http://jenkins-master:8080/jenkins</span> <span class="hljs-string">&lt;jenkins</span> <span class="hljs-string">agent</span> <span class="hljs-string">secret&gt;</span> <span class="hljs-string">python-agent1</span>
+    <span class="hljs-attr">tty:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">stdin_open:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">unless-stopped</span>
+
+<span class="hljs-attr">volumes:</span>
+  <span class="hljs-attr">jenkins_home:</span>
+  <span class="hljs-attr">jenkins_agent_home:</span>
+
+</div></code></pre>
+<ul>
+<li>From docker directory run docker compose again
+<ul>
+<li>Stop previous container if this is still running with <code>docker compose down</code> command</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div>$ docker compose up 
+</div></code></pre>
+<p>There will be prints labeled with container names defined in the compose file: jenkins-master and jenkins-agent. If everything was configured correctly, you should see agent1 is Connected.:</p>
+<pre class="hljs"><code><div>jenkins-master  | 2024-04-13 13:43:55.641+0000 [id=133]	INFO	h.TcpSlaveAgentListener$ConnectionHandler#run: Accepted JNLP4-connect connection #2 from /172.27.0.3:43808
+jenkins-agent1  | Apr 13, 2024 1:43:55 PM hudson.remoting.Launcher$CuiListener status
+jenkins-agent1  | INFO: Remote identity confirmed: 3e:b3:b5:bc:81:75:7e:97:a7:3b:9c:67:d9:91:27:47
+jenkins-agent1  | Apr 13, 2024 1:43:55 PM hudson.remoting.Launcher$CuiListener status
+jenkins-agent1  | INFO: Connected
+</div></code></pre>
+<h2 id="adding-a-job">Adding a Job</h2>
+<p>To have a better understanding how Jenkins runs jobs lets add some dummy Job. Later we will create a bunch of Python tools to automate such tasks.</p>
+<ul>
+<li>select <em>'+ New Item'</em> from <em>Jenkins Dashboard</em> or open <a href="http://localhost:8080/jenkins/view/all/newJob">http://localhost:8080/jenkins/view/all/newJob</a></li>
+<li>provide a name like &quot;Dummy Job&quot; and choose <em>Freestyle project</em> and click <code>OK</code></li>
+<li>on the next form you will find plenty of fields to fill but at the moment most important is option <code>Restrict where this project can be run</code>.<br>
+Note that you can either provide a full <em>Node</em> (Agent) name or Agent's label. If there will be different types of jobs which requires different environment it is a good idea to use labels for that. I would suggest to set <em>python</em> label for <em>python-agent1</em> and use that label here as we want to run Python tasks.</li>
+<li>lets choose <code>Add build step -&gt; Execute shell</code> as this is deployed on Linux
+<ul>
+<li>we can add something like:</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div>whoami 
+python3 -V
+</div></code></pre>
+<p align="center">
+<img src="pictures/job-shell-example.png" border=2, width=50%>
+</p>
+<ul>
+<li>job result should reflect Python version defined in agent's dockerfile and user should be <em>Jenkins</em></li>
+<li>save the settings and run <em>Build Now</em></li>
+<li>there should appear new build in <em>Build History</em> in <em>Dummy Job</em> view http://localhost:8080/jenkins/job/Dummy%20Job/</li>
+<li>console output should look like (http://localhost:8080/jenkins/job/Dummy%20Job/2/console):</li>
+</ul>
+<pre class="hljs"><code><div>Started by user admin
+Running as SYSTEM
+Building remotely on python-agent1 (python) <span class="hljs-keyword">in</span> workspace /home/jenkins/workspace/Dummy Job
+[Dummy Job] $ /bin/sh -xe /tmp/jenkins10178526424899115512.sh
++ whoami
+jenkins
++ python3 -V
+Python 3.11.2
+Finished: SUCCESS
+</div></code></pre>
+<br>
+<p>That was first part which explains how to configure very basic setup of Jenkins with single worker. Next section demonstrates how Python can be used to configure and manage Jenkins setup.</p>
+<h2 id="jenkins-api">Jenkins API</h2>
+<p>Jenkins offers a rich set of functionalities via its REST API, allowing you to automate and interact with Jenkins programmatically. Here's a list of common actions you can perform over the Jenkins API:</p>
+<ul>
+<li>Build Management
+<ul>
+<li>Trigger a build for a specific job.</li>
+<li>Retrieve the status and details of a build.</li>
+<li>Cancel or stop a running build.</li>
+</ul>
+</li>
+<li>Job Management
+<ul>
+<li>List all jobs in Jenkins.</li>
+<li>Create a new job.</li>
+<li>Delete an existing job.</li>
+<li>Update job configuration.</li>
+<li>Retrieve job configuration.</li>
+<li>Enable/disable a job.</li>
+</ul>
+</li>
+<li>Build Queue Management
+<ul>
+<li>List all items in the build queue.</li>
+<li>Cancel or remove items from the build queue.</li>
+</ul>
+</li>
+<li>Node Management
+<ul>
+<li>List all nodes (Jenkins agents).</li>
+<li>Get details about a specific node.</li>
+<li>Enable/disable a node.</li>
+<li>Delete a node.</li>
+</ul>
+</li>
+<li>User and Role Management
+<ul>
+<li>List all users.</li>
+<li>Get user details.</li>
+<li>Create/update/delete user roles and permissions.</li>
+</ul>
+</li>
+<li>Plugin Management
+<ul>
+<li>List all installed plugins.</li>
+<li>Install new plugins.</li>
+<li>Uninstall plugins.</li>
+<li>Get plugin details.</li>
+</ul>
+</li>
+<li>Credential Management
+<ul>
+<li>List all stored credentials.</li>
+<li>Add/update/delete credentials.</li>
+</ul>
+</li>
+<li>Build Artifact Management
+<ul>
+<li>Download build artifacts.</li>
+<li>List build artifacts.</li>
+</ul>
+</li>
+<li>System Information
+<ul>
+<li>Get Jenkins system information.</li>
+<li>Retrieve Jenkins version and system health status.</li>
+</ul>
+</li>
+<li>and more</li>
+</ul>
+<p>In order to use API we will need get Jenkins API token <a href="https://www.jenkins.io/doc/book/managing/cli/#authentication">https://www.jenkins.io/doc/book/managing/cli/#authentication</a> but first we need to create an API user.<br><br></p>
+<p>In order to create a user follow below steps:</p>
+<ul>
+<li>Install <code>Role-based Authorization Strategy</code> plugin <a href="http://localhost:8080/jenkins/manage/pluginManager/available">http://localhost:8080/jenkins/manage/pluginManager/available</a></li>
+<li>In <a href="http://localhost:8080/jenkins/manage/configureSecurity/"><em>Manage Jenkins -&gt; Security</em></a> fill the fields according to picture below:</li>
+</ul>
+<p align="center">
+<img src="pictures/security-settings.png" border=2, width=50%>
+</p>
+<ul>
+<li>create new user: <a href="http://localhost:8080/jenkins/manage/securityRealm/addUser">http://localhost:8080/jenkins/manage/securityRealm/addUser</a></li>
+<li>logout from <em>Administrator</em> account and log in as newly created user, in my case new user is <em>tester</em></li>
+<li>Create API token for <em>tester</em> user: <a href="http://localhost:8080/jenkins/me/configure">http://localhost:8080/jenkins/me/configure</a></li>
+</ul>
+<p align="center">
+<img src="pictures/token-creation.png" border=2, width=50%>
+</p>
+<ul>
+<li>store this token, the best is to use <em>.netrc</em> file
+<ul>
+<li><a href="https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html">https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html</a></li>
+</ul>
+</li>
+<li>just add such line in your <code>$HOME\.netrc</code> on you machine (replace <code>XXX</code> with generated token):</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">echo</span> <span class="hljs-string">"machine localhost:8080 login tester password XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span> &gt;&gt; ~/.netrc
+</div></code></pre>
+<ul>
+<li>for convenience Python code examples uses <em>netrc</em> python module to get <em>tester</em> credentials</li>
+</ul>
+<h2 id="python-support-for-jenkins">Python support for Jenkins</h2>
+<p>In this tutorial, we will focus on job creation, configuration, and reconfiguration. This can be very helpful if there is a large number of jobs to maintain. Very often, jobs share some common logic or depend on each other. Maintaining these dependencies is much easier if we apply a programmatic approach, such as using Python. I am going to use the <a href="https://python-jenkins.readthedocs.io/">python-jenkins</a> module for this. It offers most of the features listed above.</p>
+<pre class="hljs"><code><div>pip install python-jenkins
+</div></code></pre>
+<p>Having all setup lets create first Job with use of Python and Jenkins API:<br>
+<a href="https://github.com/codilime/Jenkins-Job-Manager/blob/main/lib/jenkins_api.py">https://github.com/codilime/Jenkins-Job-Manager/blob/main/lib/jenkins_api.py</a></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> netrc
+<span class="hljs-keyword">import</span> jenkins
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_jenkins_server</span><span class="hljs-params">(jenkins_base_address: str = <span class="hljs-string">'localhost:8080'</span>, 
+                       username: str = None, 
+                       api_token: str = None)</span> -&gt; jenkins.Jenkins:</span>
+    <span class="hljs-string">"""
+    https://python-jenkins.readthedocs.io/en/latest/examples.html
+    """</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (username <span class="hljs-keyword">and</span> api_token):
+        <span class="hljs-comment"># Loading credentials from the .netrc file.</span>
+        netrc_credentials = netrc.netrc()
+        jenkins_username, _, api_token = netrc_credentials.authenticators(jenkins_base_address)
+
+    jenkins_full_address = <span class="hljs-string">f'<span class="hljs-subst">{jenkins_base_address}</span>/jenkins'</span>
+    jenkins_project_url = <span class="hljs-string">f'http://<span class="hljs-subst">{jenkins_full_address}</span>'</span>
+
+    jenkins_server = jenkins.Jenkins(jenkins_project_url, jenkins_username, api_token)
+    <span class="hljs-keyword">return</span> jenkins_server
+</div></code></pre>
+<p><em>main script</em></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> jenkins
+<span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
+<span class="hljs-keyword">import</span> lib.jenkins_api <span class="hljs-keyword">as</span> jenkins_api
+server = jenkins_api.get_jenkins_server()
+server.create_job(<span class="hljs-string">'dummy job'</span>, jenkins.EMPTY_CONFIG_XML)
+pprint(server.get_all_jobs())
+</div></code></pre>
+<p>this should print:</p>
+<pre class="hljs"><code><div>[{'_class': 'hudson.model.FreeStyleProject',
+  'color': 'notbuilt',
+  'fullname': 'dummy job',
+  'name': 'dummy job',
+  'url': 'http://localhost:8080/jenkins/job/dummy%20job/'}]
+</div></code></pre>
+<br>
+This job should also be visible on our Jenkins dashboard. 
+<p align="center">
+<img src="pictures/dummy-job-view.png" border=2, width=50%>
+</p>
+<p>As we can see, the python-jenkins module uses the XML file <code>jenkins.EMPTY_CONFIG_XML</code> as a basis to configure projects. Any project created on Jenkins has its own config.xml file. Once we create a dummy job, we can check the content of the XML at the URL:<br><a href="http://localhost:8080/jenkins/job/dummy%20job/config.xml">http://localhost:8080/jenkins/job/dummy%20job/config.xml</a><br> To discover what kind of XML pieces we need to build a job according to our requirements, we can create a draft job using the web UI interface and check the generated config.xml to see what is needed.</p>
+<h2 id="xml-parsingunparsing-with-xmltodict-module">XML parsing/unparsing with <em>xmltodict</em> module</h2>
+<p>As shown earlier, we're using XML to manage our Jenkins setup. XML (eXtensible Markup Language) is a standard markup language for encoding documents in a structured, human-readable, and machine-readable way. It was designed to store and transport data, providing a flexible framework for representing data structures. While Python has an xml module for parsing XML files, a more user-friendly alternative <a href="https://pypi.org/project/xmltodict/">xmltodict</a> lets you treat XML as a dictionary, simplifying data handling:</p>
+<pre class="hljs"><code><div>pip install xmltodict
+</div></code></pre>
+<p>With this module, we can make Jenkins integration more Pythonic. I will demonstrate how to navigate an XML structure as if you're accessing object attributes, just like in most object-oriented programming languages.<br>
+In <a href="https://github.com/codilime/Jenkins-Job-Manager/blob/main/lib/xml_handler.py">https://github.com/codilime/Jenkins-Job-Manager/blob/main/lib/xml_handler.py</a> file are two classes which allows that kind of mechanism</p>
+<ul>
+<li>XmlHandler to parse and unparse XML document</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XmlHandler</span>:</span>
+    <span class="hljs-string">"""
+    Handle XML document like an OOP object
+    """</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, xml_data: str)</span>:</span>
+        self._data = XmlElement(xmltodict.parse(xml_data))
+    
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">data</span><span class="hljs-params">(self)</span> -&gt; XmlElement:</span>
+        <span class="hljs-string">"""
+
+        @return: XmlElement of root
+        """</span>
+        <span class="hljs-keyword">return</span> self._data
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unparse</span><span class="hljs-params">(self)</span> -&gt; str:</span>
+        <span class="hljs-string">"""
+
+        @return: xml as string
+        """</span>
+        <span class="hljs-keyword">return</span> xmltodict.unparse(self._data, pretty=<span class="hljs-literal">True</span>)
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> pformat(self._data)
+</div></code></pre>
+<ul>
+<li>XmlElement to handle each xml element as an object's attribute</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XmlElement</span><span class="hljs-params">(dict)</span>:</span>
+    <span class="hljs-string">"""
+    Defines mechanism to access and modify dict keys as an object's attribute
+    """</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setattr__</span><span class="hljs-params">(self, key: str, value)</span>:</span>
+        <span class="hljs-string">"""
+        Assign value to dict key by __setattr__
+        @param key: key
+        @param value: value
+        @return: 
+        """</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> key.startswith(<span class="hljs-string">'_'</span>):
+            self[key] = value
+        <span class="hljs-keyword">else</span>:
+            super().__setattr__(key, value)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattr__</span><span class="hljs-params">(self, item)</span>:</span>
+        <span class="hljs-string">"""
+        Allow to get dict item with getattr method
+        @param item: dict key
+        @return: plain data or new XmlElement
+        """</span>
+        data = super().__getitem__(item)
+        <span class="hljs-keyword">if</span> issubclass(type(data), dict):
+            xml_element = XmlElement(data)
+            super().__setitem__(item, xml_element)  <span class="hljs-comment"># reassign current element with new instance of XmlElement</span>
+        <span class="hljs-keyword">return</span> super().__getitem__(item)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, item)</span>:</span>
+        <span class="hljs-string">"""
+        Override getitem so it will return new XmlElement if element is type of dict, reuse __getattr__ implementation
+        @param item:
+        @return:
+        """</span>
+        <span class="hljs-keyword">return</span> self.__getattr__(item)
+
+</div></code></pre>
+<p>Lets see how it works. Here a default <code>jenkins.EMPTY_CONFIG_XML</code> used to create <em>dummy job</em>, the same is visible under <a href="http://localhost:8080/jenkins/job/Dummy%20Job/config.xml">http://localhost:8080/jenkins/job/Dummy%20Job/config.xml</a></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">keepDependencies</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">keepDependencies</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">scm</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"jenkins.scm.NullSCM"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">canRoam</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">canRoam</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">disabled</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">disabled</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">blockBuildWhenUpstreamBuilding</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">blockBuildWhenUpstreamBuilding</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">triggers</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vector"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">concurrentBuild</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">concurrentBuild</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">builders</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">publishers</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">buildWrappers</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+<span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+</div></code></pre>
+<p>Now lets make an <em>XmlHandler</em> object out of it:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> lib.jenkins_api <span class="hljs-keyword">as</span> jenkins_api
+<span class="hljs-keyword">import</span> lib.xml_handler <span class="hljs-keyword">as</span> xml_handler
+
+server = jenkins_api.get_jenkins_server()
+
+xml_data = server.get_job_config(<span class="hljs-string">'dummy job'</span>)
+xml_obj = xml_handler.XmlHandler(xml_data)
+
+print(xml_obj)
+</div></code></pre>
+<p>As we expected we have the same structure in form of nice looking dictionary:</p>
+<pre class="hljs"><code><div>{'project': {'blockBuildWhenUpstreamBuilding': 'false',
+             'buildWrappers': None,
+             'builders': None,
+             'canRoam': 'true',
+             'concurrentBuild': 'false',
+             'disabled': 'false',
+             'keepDependencies': 'false',
+             'properties': None,
+             'publishers': None,
+             'scm': {'@class': 'jenkins.scm.NullSCM'},
+             'triggers': {'@class': 'vector'}}}
+</div></code></pre>
+<p>To show how to update jenkins job with demonstrated tools I am going to add description to the job:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> lib.jenkins_api <span class="hljs-keyword">as</span> jenkins_api
+<span class="hljs-keyword">import</span> lib.xml_handler <span class="hljs-keyword">as</span> xml_handler
+
+server = jenkins_api.get_jenkins_server()
+
+<span class="hljs-comment"># Get dummy job config.xml</span>
+xml_data = server.get_job_config(<span class="hljs-string">'dummy job'</span>)
+
+xml_obj = xml_handler.XmlHandler(xml_data)
+
+xml_data = xml_obj.data
+
+<span class="hljs-comment"># Adding description to job</span>
+xml_data.project.description = <span class="hljs-string">"This is dummy job for demonstration purposes"</span>
+
+<span class="hljs-comment"># Adding new field 'properties' which stores ParametersDefinitionProperty</span>
+xml_data.project.properties = {
+    <span class="hljs-string">'hudson.model.ParametersDefinitionProperty'</span>:
+        {
+            <span class="hljs-string">'parameterDefinitions'</span>: {}
+        }
+}
+
+<span class="hljs-comment"># Let's grab parameterDefinitions list context</span>
+parameter_definitions = xml_data.project.properties[<span class="hljs-string">'hudson.model.ParametersDefinitionProperty'</span>].parameterDefinitions
+parameter_definitions[<span class="hljs-string">'hudson.model.StringParameterDefinition'</span>] = [] <span class="hljs-comment"># for many parameters of the same type use list</span>
+
+<span class="hljs-comment"># Adding new Job parameters</span>
+parameters = [
+    dict(name=<span class="hljs-string">'parameter1'</span>, description=<span class="hljs-string">'this is dummy parameter 1'</span>, default_value=<span class="hljs-string">'0'</span>),
+    dict(name=<span class="hljs-string">'parameter2'</span>, description=<span class="hljs-string">'this is dummy parameter 2'</span>, default_value=<span class="hljs-string">'1'</span>),
+]
+
+<span class="hljs-keyword">for</span> parameter_dict <span class="hljs-keyword">in</span> parameters:
+    parameter_definitions[<span class="hljs-string">'hudson.model.StringParameterDefinition'</span>].append(
+        <span class="hljs-comment"># Jenkins XML element names must be camel case</span>
+        xml_handler.keys_to_camel_case(**parameter_dict)
+    )
+
+
+print(xml_obj.unparse())
+server.reconfig_job(<span class="hljs-string">'dummy job'</span>, config_xml=xml_obj.unparse())
+</div></code></pre>
+<p>This is how updated xml looks like with new <em>description</em> element and set of new string parameters</p>
+<pre class="hljs"><code><div>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;project&gt;
+	&lt;actions&gt;&lt;/actions&gt;
+	&lt;description&gt;This is dummy job for demonstration purposes&lt;/description&gt;
+	&lt;keepDependencies&gt;false&lt;/keepDependencies&gt;
+	&lt;properties&gt;
+		&lt;hudson.model.ParametersDefinitionProperty&gt;
+			&lt;parameterDefinitions&gt;
+				&lt;hudson.model.StringParameterDefinition&gt;
+					&lt;name&gt;parameter1&lt;/name&gt;
+					&lt;description&gt;this is dummy parameter 1&lt;/description&gt;
+					&lt;defaultValue&gt;0&lt;/defaultValue&gt;
+				&lt;/hudson.model.StringParameterDefinition&gt;
+				&lt;hudson.model.StringParameterDefinition&gt;
+					&lt;name&gt;parameter2&lt;/name&gt;
+					&lt;description&gt;this is dummy parameter 2&lt;/description&gt;
+					&lt;defaultValue&gt;1&lt;/defaultValue&gt;
+				&lt;/hudson.model.StringParameterDefinition&gt;
+			&lt;/parameterDefinitions&gt;
+		&lt;/hudson.model.ParametersDefinitionProperty&gt;
+	&lt;/properties&gt;
+	&lt;scm class=&quot;hudson.scm.NullSCM&quot;&gt;&lt;/scm&gt;
+	&lt;canRoam&gt;true&lt;/canRoam&gt;
+	&lt;disabled&gt;false&lt;/disabled&gt;
+	&lt;blockBuildWhenDownstreamBuilding&gt;false&lt;/blockBuildWhenDownstreamBuilding&gt;
+	&lt;blockBuildWhenUpstreamBuilding&gt;false&lt;/blockBuildWhenUpstreamBuilding&gt;
+	&lt;triggers&gt;&lt;/triggers&gt;
+	&lt;concurrentBuild&gt;false&lt;/concurrentBuild&gt;
+	&lt;builders&gt;&lt;/builders&gt;
+	&lt;publishers&gt;&lt;/publishers&gt;
+	&lt;buildWrappers&gt;&lt;/buildWrappers&gt;
+&lt;/project&gt;
+</div></code></pre>
+<p>From <em>Dummy Job</em> view we can see that config was updated:
+http://localhost:8080/jenkins/job/Dummy%20Job/build</p>
+<p align="center">
+<img src="./pictures/adding-parameters.png" border=2, width=50%>
+</p>
+<p>That was a showcase how can those tools can be used. Lets create something useful then. We can create new classes in Python now to create many different templates of different types of Jobs we need like:</p>
+<ul>
+<li>freestyle job</li>
+<li>pipeline job</li>
+<li>folder</li>
+<li>etc</li>
+</ul>
+<p>We need to know how xml structure looks like for each item we want to create on Jenkins. You can create some example Item on Jenkins web-ui and see how <em>config.xml</em> looks like. Basically this is the simples way to create a single job. Examples and tools shown here are more practical when you want to manage bigger number of jobs.<br></p>
+<p>In <a href="https://github.com/codilime/Jenkins-Job-Manager/blob/main/lib/job_manager.py">https://github.com/codilime/Jenkins-Job-Manager/blob/main/lib/job_manager.py</a> file are defined template classes to create a Freestyle job but if course this is just single example how you can use this approach to create and manage your own kinds of Jobs.<br>
+Here is a short snippet which creates fully operational Job with few parameters. It also shows how can we simply render a shell script based of defined parameters:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> lib.jenkins_api <span class="hljs-keyword">as</span> jenkins_api
+<span class="hljs-keyword">import</span> lib.job_manager <span class="hljs-keyword">as</span> job_manager
+
+server = jenkins_api.get_jenkins_server()
+
+<span class="hljs-comment"># Get 'dummy job' config.xml</span>
+xml_data = server.get_job_config(<span class="hljs-string">'dummy job'</span>)
+
+<span class="hljs-comment"># Create freestyle job</span>
+freestyle_job = job_manager.FreestyleJob(description=<span class="hljs-string">'new dummy job'</span>)
+
+<span class="hljs-comment"># Add string parameters to the job</span>
+parameter1 = <span class="hljs-string">'Param1'</span>
+parameter2 = <span class="hljs-string">'Param2'</span>
+freestyle_job.add_job_parameter(parameter1, description=<span class="hljs-string">'first parameter'</span>, default_value=<span class="hljs-string">'val1'</span>)
+freestyle_job.add_job_parameter(parameter2, description=<span class="hljs-string">'second parameter'</span>, default_value=<span class="hljs-string">'val2'</span>)
+
+<span class="hljs-comment"># Add choices parameter</span>
+platform_parameter = <span class="hljs-string">'platform'</span>
+freestyle_job.add_job_choices_parameter(platform_parameter, choices=[<span class="hljs-string">'linux'</span>, <span class="hljs-string">'windows'</span>], description=<span class="hljs-string">'choose platform'</span>)
+
+<span class="hljs-comment"># Add artifact archiver, collect log file produced by shell script below</span>
+freestyle_job.add_artifact_archiver(<span class="hljs-string">'*.log'</span>)
+
+<span class="hljs-comment"># Define builder shell script</span>
+freestyle_job.add_builder_shell_script(
+    <span class="hljs-string">f'''
+    echo Selected platform: $<span class="hljs-subst">{platform_parameter}</span>
+    echo Executing job with parameters <span class="hljs-subst">{parameter1}</span>=$<span class="hljs-subst">{parameter1}</span>, <span class="hljs-subst">{parameter2}</span>=$<span class="hljs-subst">{parameter2}</span>
+    pip list | tee text.log
+    '''</span>
+)
+
+
+server.reconfig_job(<span class="hljs-string">'dummy job'</span>, config_xml=freestyle_job.unparse())
+</div></code></pre>
+<p>Now lets see how it looks:</p>
+<p align="center">
+<img src="./pictures/updated-parameters.png" border=2, width=50%>
+</p>
+<p>After building the Job here is how console output looks like:</p>
+<pre class="hljs"><code><div>Started by user unknown or anonymous
+Running as SYSTEM
+Building remotely on python-agent1 in workspace /home/jenkins/workspace/dummy job
+[dummy job] $ /bin/sh -xe /tmp/jenkins6729820319219664139.sh
++ echo Selected platform: linux
+Selected platform: linux
++ echo Executing job with parameters Param1=val1, Param2=val2
+Executing job with parameters Param1=val1, Param2=val2
++ pip list
++ tee text.log
+Package            Version
+------------------ ------------
+astroid            2.14.2
+attrs              22.2.0
+...
+</div></code></pre>
+<p>As you can see all values were correctly placed in a shell script. There is also an artifact collected according to <code>freestyle_job.add_artifact_archiver('*.log')</code> expression which contains output of <code>pip list</code> command</p>
+<p align="center">
+<img src="./pictures/build-view.png" border=2, width=50%>
+</p>
+<p>This is just a very basic showcase, but it gives an idea of how Python can be useful for managing any Jenkins project. This comes in handy if there are many different jobs or pipelines that are somehow related to each other. One job can run another job that requires specific parameters, or there can be pipelines defined that run different jobs with specific configurations. If there are dependencies between jobs, all logic can be expressed in Python. When the configuration requires an update or there is a need to add a new parameter, it is much easier to handle that in a Python script and simply run the update script to update every job. If the logic of a given Jenkins project is defined with a Python script, this can serve as a backup or a tool to deploy the same configuration on a different server without unnecessary manual work.<br></p>
+<h2 id="summary-and-conclusion">Summary and Conclusion</h2>
+<p>In this guide, we have covered the essential steps to set up and manage Jenkins using Docker. By leveraging Docker, we maintain a clean host system and benefit from isolated environments, making the deployment and management of Jenkins more efficient and reliable. We explored creating a Jenkins agent Docker image tailored for Python projects, setting up the Jenkins controller with Docker Compose, and connecting agents to the controller.</p>
+<p>We also delved into managing Jenkins using Python, demonstrating how to automate and interact with Jenkins through its REST API and the python-jenkins module. This allows for efficient job creation, deletion, and reconfiguration, as well as other administrative tasks, highlighting the flexibility and power of combining Jenkins with Python.</p>
+<p>This tutorial provides a comprehensive approach to setting up a robust CI/CD pipeline, showcasing the integration of Docker and Python to simplify and enhance Jenkins management. By following these steps, you can establish a scalable and maintainable Jenkins environment, ensuring a smooth and efficient development workflow.</p>
+
+</body>
+</html>

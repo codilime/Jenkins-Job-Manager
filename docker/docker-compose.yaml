@@ -17,13 +17,14 @@ services:
     container_name: jenkins-agent1
     depends_on:
       - jenkins-master
+    # build docker image from prepared dockerfile-python-agent
     build:
       context: .
       dockerfile: dockerfile-python-agent
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - jenkins_agent_home:/home/jenkins
-    command: -url http://jenkins-master:8080/jenkins <JENKINS API TOKEN HERE> python-agent1
+    command: -url http://jenkins-master:8080/jenkins <secret> python-agent1
     tty: true
     stdin_open: true
     restart: unless-stopped
