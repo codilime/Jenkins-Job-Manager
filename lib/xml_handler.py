@@ -2,7 +2,7 @@ import xmltodict
 from pprint import pformat
 
 
-def snake_to_camel(snake_str):
+def snake_to_camel(snake_str: str) -> str:
     """
     Convert snake style string to camel case
     @param snake_str: input string
@@ -12,7 +12,7 @@ def snake_to_camel(snake_str):
     return components[0] + "".join(x.capitalize() or "_" for x in components[1:])
 
 
-def keys_to_camel_case(kwargs):
+def keys_to_camel_case(kwargs: dict) -> dict:
     """
     Convert dict keys to camel case for XML compatibility
     @param kwargs: dictionary
