@@ -1,5 +1,4 @@
-import lib.jenkins_api as jenkins_api
-import lib.job_manager as job_manager
+from lib import jenkins_api, job_manager
 
 server = jenkins_api.get_jenkins_server()
 
