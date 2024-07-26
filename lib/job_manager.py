@@ -8,12 +8,12 @@ class BaseJob:
     Render base job config with different types of parameters
     """
 
-    def __init__(self, description, base_xml=jenkins.EMPTY_CONFIG_XML):
+    def __init__(self, description: str, base_xml: str = jenkins.EMPTY_CONFIG_XML):
         self._xml_handler = XmlHandler(base_xml)
         self._project = self._xml_handler.data.project
         self._project.description = description
 
-    def _add_generic_parameter(self, parameter_type, parameter_dict):
+    def _add_generic_parameter(self, parameter_type: str, parameter_dict: dict) -> None:
         parameter_dict = keys_to_camel_case(parameter_dict)
         hudson_model_parameter_type = f"hudson.model.{parameter_type}"
         if self._project.get('properties') is None:
@@ -35,7 +35,7 @@ class BaseJob:
 
     def add_job_choices_parameter(
             self, name: str, description: str, choices: List[str], parameter_type="ChoiceParameterDefinition"
-    ):
+    ) -> None:
         """
         Add choices (options) parameter to the job
         @param name: parameter name
@@ -44,8 +44,7 @@ class BaseJob:
         @param parameter_type: Jenkins specific type of parameter
         @return: None
         """
-
-        parameter_dict = dict(name=name, description=description)
+        parameter_dict = {"name": name, "description": description}
         choices_entry = {"@class": "java.util.Arrays$ArrayList", "a": {"@class": "string-array", "string": choices}}
         parameter_dict["choices"] = choices_entry
 
@@ -77,10 +76,7 @@ class BaseJob:
 
 
 class FreestyleJob(BaseJob):
-    def __init__(self, description, base_xml=jenkins.EMPTY_CONFIG_XML):
-        super().__init__(description=description, base_xml=base_xml)
-
-    def _add_builder(self, script: str, task_type="BatchFile", configured_local_rules=None):
+    def _add_builder(self, script: str, task_type="BatchFile", configured_local_rules=None) -> None:
         """
         Add build step to Jenkins job
         @param script: script content
@@ -95,7 +91,7 @@ class FreestyleJob(BaseJob):
         else:
             self._project.builders[hudson_task_type].append(hudson_task_entry)
 
-    def add_builder_shell_script(self, script, configured_local_rules=None):
+    def add_builder_shell_script(self, script, configured_local_rules=None) -> None:
         self._add_builder(script=script, task_type="Shell", configured_local_rules=configured_local_rules)
 
     def add_artifact_archiver(
@@ -107,7 +103,7 @@ class FreestyleJob(BaseJob):
             default_excludes: bool = True,
             case_sensitive: bool = True,
             follow_symlinks: bool = False,
-    ):
+    ) -> None:
         """
         Add artifact collector to Jenkins job. !! ArtifactArchiver plugin must be installed !!
         @param artifacts: string of artifacts expression
